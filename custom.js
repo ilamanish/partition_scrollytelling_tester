@@ -30,7 +30,6 @@ function createLegend() {
     var item = document.createElement('div');
     var key = document.createElement('span');
     key.className = 'legend-key';
-    key.style.backgroundColor = color;
 
     var value = document.createElement('span');
     value.innerHTML = layer;
