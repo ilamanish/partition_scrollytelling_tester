@@ -11,37 +11,37 @@ window.onload = function() {
   });
 };
 
-map.on('load', () => {
-  const layers = [
-    'Male',
-    'Female',
-    'Unknown'
-  ];
-  const colors = [
-    '#54278f',
-    '#d95f0e',
-    '#2ca25f'
-  ];
+// map.on('load', () => {
+//   const layers = [
+//     'Male',
+//     'Female',
+//     'Unknown'
+//   ];
+//   const colors = [
+//     '#54278f',
+//     '#d95f0e',
+//     '#2ca25f'
+//   ];
 
-  // create legend
-  const legend = document.getElementById('legend');
+//   // create legend
+//   const legend = document.getElementById('legend');
 
-  layers.forEach((layer, i) => {
-    const color = colors[i];
-    const item = document.createElement('div');
-    const key = document.createElement('span');
-    key.className = 'legend-key';
-    key.style.backgroundColor = color;
+//   layers.forEach((layer, i) => {
+//     const color = colors[i];
+//     const item = document.createElement('div');
+//     const key = document.createElement('span');
+//     key.className = 'legend-key';
+//     key.style.backgroundColor = color;
 
-    const value = document.createElement('span');
-    value.innerHTML = `${layer}`;
-    item.appendChild(key);
-    item.appendChild(value);
-    legend.appendChild(item);
-  });
+//     const value = document.createElement('span');
+//     value.innerHTML = `${layer}`;
+//     item.appendChild(key);
+//     item.appendChild(value);
+//     legend.appendChild(item);
+//   });
 
   
-});
+// });
 
 
 
