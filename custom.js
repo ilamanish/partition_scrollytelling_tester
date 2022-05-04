@@ -15,13 +15,13 @@ window.onload = function () {
 function createLegend() {
   //LEGEND TEXT
   //the var layers array sets the text that will show up in the legend. you can enter any value here it is just text. Make sure that the legend values correspond to the ones you set in Mapbox.
-  var layers = ['Hindu', 'Muslim', 'Sikh', 'Other'];
+  var layers = ['Male', 'Female', 'Other'];
 
   //LEGEND COLORS
   //Set the corresponding LEGEND colors using HEX the easiest way to do this is by setting your mapcolors in Mapbox using ColorBrewer (colorbrewer2.org). Then copy the exact same hex value to the array below. Remember that each label above should correspond to a color. If the number of items in layers does not match the number of values in colors you will get an error.
 
 
-  var colors = ['#321881', '#f88d1b', '#f7368a', '#0ac213'];
+  var colors = ['#54278f', '#d95f0e', '#2ca25f'];
 
 //run through each element in the legend array and create a new legend item.
   for (i = 0; i < layers.length; i++) {
