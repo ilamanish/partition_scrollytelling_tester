@@ -7,7 +7,7 @@
   width: 100%;
 }
 
-/* #legend {
+#legend {
   padding: 10px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   line-height: 18px;
@@ -24,4 +24,4 @@
   height: 10px;
   margin-right: 5px;
   font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-} */
+} 
