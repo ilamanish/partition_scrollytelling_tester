@@ -12,34 +12,32 @@ window.onload = function () {
   });
 };
 
-map.on('load', () => {
-  const layers = [
-    'Male',
-    'Female',
-    'Unknown'
-  ];
-  const colors = [
-    '#54278f',
-    '#d95f0e',
-    '#2ca25f'
-  ];
+createLegend()
 
-  // create legend
-  const legend = document.getElementById('legend');
+function createLegend() {
+  //LEGEND TEXT
+  //the var layers array sets the text that will show up in the legend. you can enter any value here it is just text. Make sure that the legend values correspond to the ones you set in Mapbox.
+  var layers = ['Male', 'Female', 'Unknown'];
 
-  layers.forEach((layer, i) => {
-    const color = colors[i];
-    const item = document.createElement('div');
-    const key = document.createElement('span');
+  //LEGEND COLORS
+  //Set the corresponding LEGEND colors using HEX the easiest way to do this is by setting your mapcolors in Mapbox using ColorBrewer (colorbrewer2.org). Then copy the exact same hex value to the array below. Remember that each label above should correspond to a color. If the number of items in layers does not match the number of values in colors you will get an error.
+
+
+  var colors = ['#54278f', '#d95f0e', '#2ca25f'];
+
+//run through each element in the legend array and create a new legend item.
+  for (i = 0; i < layers.length; i++) {
+    var layer = layers[i];
+    var color = colors[i];
+    var item = document.createElement('div');
+    var key = document.createElement('span');
     key.className = 'legend-key';
     key.style.backgroundColor = color;
 
-    const value = document.createElement('span');
-    value.innerHTML = `${layer}`;
+    var value = document.createElement('span');
+    value.innerHTML = layer;
     item.appendChild(key);
     item.appendChild(value);
     legend.appendChild(item);
-  });
-
-
-});
+  }
+  //LEGEND CODE
