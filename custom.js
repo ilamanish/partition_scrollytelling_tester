@@ -85,7 +85,8 @@ function createLegend() {
           '<p>' + "Location: " + info[0].properties.place_name + '</p>;
         //Depending on what you want to show you can add more variables and more text The stub above generates the author_name, text_title, the location_name and the frequency count.
 
-      } else {
-        document.getElementById('infobox_content').innerHTML = '<p>Hover over an area</p>';
-      }
+      } 
+//       else {
+//         document.getElementById('infobox_content').innerHTML = '<p>Hover over an area</p>';
+//       }
     });
