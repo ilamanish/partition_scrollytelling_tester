@@ -1,1 +1,63 @@
+/* Styling for the map. Use this to modify the site. */
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+h2 {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #2dc4b2;
+}
+
+p {
+  font-size: 0.85em;
+  font-weight:normal;
+  margin: 10px;
+  text-align: left;
+}
+
+
+.row {
+height: 12px;
+width: 100%;
+}
+
+.map-overlay .map-overlay-inner {
+    background-color: #fff;
+    box-shadow:0 2px 3px rgba(0, 0, 0, 0.20);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.map-overlay {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.75);
+  margin: 10px;
+  font: bold 16px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
