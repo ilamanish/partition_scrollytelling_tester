@@ -81,9 +81,7 @@ width: 100%;
   font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-#infobox {
-  float: right
-   
+#infobox { 
   top: 0;
   height: fit-content;
   box-shadow:0 2px 3px rgba(0, 0, 0, 0.20);
@@ -93,4 +91,6 @@ width: 100%;
   margin-top: 5px;
   margin-left: 5px;
   width: 250px;
+  position: relative;
+  z-index: 10;
 }
