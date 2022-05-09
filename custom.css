@@ -81,7 +81,7 @@ width: 100%;
   font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-/* #infobox { 
+#infobox_content { 
   top: 0;
   height: fit-content;
   box-shadow:0 2px 3px rgba(0, 0, 0, 0.20);
@@ -94,4 +94,3 @@ width: 100%;
   position: relative;
   z-index: 2;
 }
- */
