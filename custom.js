@@ -50,43 +50,40 @@ function createLegend() {
 }
 //LEGEND CODE
 
-  function createHoverBox() {
+//Event handler for the infobox. This checks where the mouse is when it moves. If it moves over an area where the layer it populates the info box.
+map.on('mousemove', function(e) {
 
-    //Event handler for the infobox. This checks where the mouse is when it moves. If it moves over an area where the layer it populates the info box.
-    map.on('mousemove', function(e) {
+  //START INFOBOX CODE =======================================================
 
-      //START INFOBOX CODE =======================================================
+  //CONTEXT--------------------------------------------------------
+  //The infobox is "triggered" by the mousemove function. That is, when your mouse moves over a certain area the function activates. It then pulls information from the layer in order to display it.  The two things you we will set here are the layer you are pulling information and the information you are going to display.
 
-      //CONTEXT--------------------------------------------------------
-      //The infobox is "triggered" by the mousemove function. That is, when your mouse moves over a certain area the function activates. It then pulls information from the layer in order to display it.  The two things you we will set here are the layer you are pulling information and the information you are going to display.
+  //CONTEXT-------------------------------------------------
+  // This makes a temporary version of the layer from which we will pull data based on the area the mouse cursor is pointing over (e.point). So if we are hovering over Delhi it will pull up the information on Delhi. In order to be able to do this the computer needs to know where to find this information. In this case, the layer is 'author-location-text-title'. Just so the script grabs the most up to date layer please publish your project. Now go to mapbox figure out what layer you want info for and copy the name exactly and replace 'author-location-text-title'.
 
-      //CONTEXT-------------------------------------------------
-      // This makes a temporary version of the layer from which we will pull data based on the area the mouse cursor is pointing over (e.point). So if we are hovering over Delhi it will pull up the information on Delhi. In order to be able to do this the computer needs to know where to find this information. In this case, the layer is 'author-location-text-title'. Just so the script grabs the most up to date layer please publish your project. Now go to mapbox figure out what layer you want info for and copy the name exactly and replace 'author-location-text-title'.
+  //MAKE CHANGE-----------------------------------------------------------------
+  var info = map.queryRenderedFeatures(e.point, {
+    layers: ['final_percentage_unknown'] //REPLACE 'author-location-text-title' with the name of your layer
+  });
 
-      //MAKE CHANGE-----------------------------------------------------------------
-      var info = map.queryRenderedFeatures(e.point, {
-        layers: ['final_percentage_unknown'] //REPLACE 'author-location-text-title' with the name of your layer
-        //of your layer
-      });
+  //CONTEXT -----------------------------------------------------------------
+  //The code below looks a bit overwhelming! Essentially, what we will be doing is telling the computer what information about what features we want to display. The code below produces the name of the author, the name of the story, the name of the location, and the count. It also adds a picture of the book cover.
+  //Since, these values are going to change depending on where I scroll I want to get these pieces of information based on variables and not absolute values. I do this by looking at the Info variable I created earlier. Since, this variable contains all the values of the area my mouse is currently over, I can display whatever values I want. I access these values by saying   info[0].properties.author_name. That is, give me the current value of the author_name column. Whatever attributes are part of the layer can be accessed. So really, the only thing you are changing here is the value after the properties. to match with what you want to show.
+  //You'll also notice that there are pieces in double quotes like "Name: ". This is constant and Name: will always show on a scroll over. You'll note that this text is connected with the variable info[0].properties.author_name through a plus sign ( + ). If computers want to add text together they need to concatenate.
+  //If I write "Programming " + "is " + "fun.", the output will be Programming is fun. Thus if you want to change the labels of the text before the variable this is what you change.
 
-      //CONTEXT -----------------------------------------------------------------
-      //The code below looks a bit overwhelming! Essentially, what we will be doing is telling the computer what information about what features we want to display. The code below produces the name of the author, the name of the story, the name of the location, and the count. It also adds a picture of the book cover.
-      //Since, these values are going to change depending on where I scroll I want to get these pieces of information based on variables and not absolute values. I do this by looking at the Info variable I created earlier. Since, this variable contains all the values of the area my mouse is currently over, I can display whatever values I want. I access these values by saying   info[0].properties.author_name. That is, give me the current value of the author_name column. Whatever attributes are part of the layer can be accessed. So really, the only thing you are changing here is the value after the properties. to match with what you want to show.
-      //You'll also notice that there are pieces in double quotes like "Name: ". This is constant and Name: will always show on a scroll over. You'll note that this text is connected with the variable info[0].properties.author_name through a plus sign ( + ). If computers want to add text together they need to concatenate.
-      //If I write "Programming " + "is " + "fun.", the output will be Programming is fun. Thus if you want to change the labels of the text before the variable this is what you change.
-
-      //For the images I did a simple workaround. I want to display the image of the text for each author, but I do not necessarily have each the title of each work as some are short stories. Instead, saved a picture of each author's work and saved it by their name (i.e. Sikdar, Sunanda.jpg). Thus, whenever an author's name comes up from the properties, it merely has to look for that image name to match.
+  //For the images I did a simple workaround. I want to display the image of the text for each author, but I do not necessarily have each the title of each work as some are short stories. Instead, saved a picture of each author's work and saved it by their name (i.e. Sikdar, Sunanda.jpg). Thus, whenever an author's name comes up from the properties, it merely has to look for that image name to match.
 
 
-      //MAKE CHANGE---------------------------------------------------------------
-      if (info.length > 0) {
+  //MAKE CHANGE---------------------------------------------------------------
+//   if (info.length > 0) {
 
-        document.getElementById('infobox_content').innerHTML = '<h5>' + info[0].properties.percentage_unknown + '</h5>' +
-          '<p>' + "Location: " + info[0].properties.place_name + '</p>;
-        //Depending on what you want to show you can add more variables and more text The stub above generates the author_name, text_title, the location_name and the frequency count.
+  info.onmouseover = function() {
+    document.getElementById('infobox_content').innerHTML = '<h5>' + info[0].properties.percentage_unknown + '</h5>' +
+      '<p>' + "Location: " + info[0].properties.place_name + '</p>;
+    //Depending on what you want to show you can add more variables and more text The stub above generates the author_name, text_title, the location_name and the frequency count.
 
-      } 
-//       else {
-//         document.getElementById('infobox_content').innerHTML = '<p>Hover over an area</p>';
-//       }
-    });
+  info.onmouseout = function() {
+    document.getElementById('infobox_content').innerHTML = '<p>Hover over an area</p>';
+  }
+});
