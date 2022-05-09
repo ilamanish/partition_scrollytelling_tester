@@ -17,7 +17,6 @@ map.on('load', () => {
 
   //to reduce clutter, the steps for creating a legend, slider, and menu have all been turned into functions.
   createLegend()
-  createHoverBox()
 
 });
 
