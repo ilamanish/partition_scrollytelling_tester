@@ -62,14 +62,14 @@ width: 100%;
   width: 100%;
 }
 
-/* #console {
+#console {
   position: absolute;
   width: 280px;
   margin: 10px;
   padding: 10px 20px;
   background-color: white;
   border-radius: 5px;
-} */
+}
 
 #legend {
   padding: 10px;
