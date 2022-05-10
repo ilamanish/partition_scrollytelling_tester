@@ -87,3 +87,82 @@ function createLegend() {
 //     document.getElementById('infobox_content').innerHTML = '<p>Hover over an area</p>';
 //   }
 // });
+
+const chapters = {
+  part_1: {
+    bearing: 0,
+    center: [77.0688997, 28.5272803],
+    zoom: 1,
+    pitch: 0,
+  },
+  part_2: {
+    bearing: 0,
+    center: [77.0688997, 28.5272803],
+    zoom: 3,
+    pitch: 0,
+  },
+  part_3: {
+    bearing: 0,
+    center: [77.0688997, 28.5272803],
+    zoom: 3,
+    pitch: 0,
+  },
+  part_4: {
+    bearing: 0,
+    center: [72.8054, 18.9629],
+    zoom: 11,
+    speed: 1,
+  },
+  part_5: {
+    bearing: 0,
+    center: [76.50, 30.43],
+    zoom: 11,
+    speed: 1,
+  },
+  part_6: {
+    bearing: 0,
+    center: [77.0688997, 28.5272803],
+    zoom: 3,
+    pitch: 0,
+  },
+  part_7: {
+    bearing: 0,
+    center: [77.0688997, 28.5272803],
+    zoom: 3,
+    pitch: 0,
+  },
+  part_8: {
+    bearing: 0,
+    center: [77.0688997, 28.5272803],
+    zoom: 3,
+    pitch: 0,
+  },
+};
+
+let activeChapterName = "part_1";
+function setActiveChapter(chapterName) {
+  if (chapterName === activeChapterName) return;
+
+  map.flyTo(chapters[chapterName]);
+
+  document.getElementById(chapterName).classList.add("active");
+  document.getElementById(activeChapterName).classList.remove("active");
+
+  activeChapterName = chapterName;
+}
+
+function isElementOnScreen(id) {
+  const element = document.getElementById(id);
+  const bounds = element.getBoundingClientRect();
+  return bounds.top < window.innerHeight && bounds.bottom > 0;
+}
+
+// On every scroll event, check which element is on screen
+window.onscroll = () => {
+  for (const chapterName in chapters) {
+    if (isElementOnScreen(chapterName)) {
+      setActiveChapter(chapterName);
+      break;
+    }
+  }
+};
