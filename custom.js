@@ -86,4 +86,4 @@ function createLegend() {
 //   info.onmouseout = function() {
 //     document.getElementById('infobox_content').innerHTML = '<p>Hover over an area</p>';
 //   }
-});
+// });
